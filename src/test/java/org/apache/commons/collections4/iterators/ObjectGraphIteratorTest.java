@@ -74,7 +74,7 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
     public void testIteratorConstructor_null1() {
         final Iterator<Object> it = new ObjectGraphIterator<>(null);
 
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -110,7 +110,7 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final List<Iterator<Object>> iteratorList = new ArrayList<>();
         final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
 
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -131,10 +131,10 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
 
         for (int i = 0; i < 6; i++) {
-            assertEquals(true, it.hasNext());
+            assertTrue(it.hasNext());
             assertEquals(testArray[i], it.next());
         }
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -171,10 +171,10 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
 
         for (int i = 0; i < 6; i++) {
-            assertEquals(true, it.hasNext());
+            assertTrue(it.hasNext());
             assertEquals(testArray[i], it.next());
         }
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -193,7 +193,7 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
             assertEquals(testArray[i], it.next());
             it.remove();
         }
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         assertEquals(0, list1.size());
         assertEquals(0, list2.size());
         assertEquals(0, list3.size());
@@ -208,10 +208,10 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
 
         for (int i = 0; i < 6; i++) {
-            assertEquals(true, it.hasNext());
+            assertTrue(it.hasNext());
             assertEquals(testArray[i], it.next());
         }
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
     }
 
     public void testIteration_IteratorOfIteratorsWithEmptyIterators() {
@@ -226,17 +226,17 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
 
         for (int i = 0; i < 6; i++) {
-            assertEquals(true, it.hasNext());
+            assertTrue(it.hasNext());
             assertEquals(testArray[i], it.next());
         }
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
     }
 
     //-----------------------------------------------------------------------
     public void testIteration_RootNull() {
         final Iterator<Object> it = new ObjectGraphIterator<>(null, null);
 
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -253,9 +253,9 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Forest forest = new Forest();
         final Iterator<Object> it = new ObjectGraphIterator<>(forest, null);
 
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(forest, it.next());
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -268,9 +268,9 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
         final Leaf l1 = forest.addTree().addBranch().addLeaf();
         final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
 
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l1, it.next());
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -296,17 +296,17 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
 
         final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
 
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l1, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l2, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l3, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l4, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l5, it.next());
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();
@@ -332,17 +332,17 @@ public class ObjectGraphIteratorTest extends AbstractIteratorTest<Object> {
 
         final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
 
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l1, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l2, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l3, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l4, it.next());
-        assertEquals(true, it.hasNext());
+        assertTrue(it.hasNext());
         assertSame(l5, it.next());
-        assertEquals(false, it.hasNext());
+        assertFalse(it.hasNext());
         try {
             it.next();
             fail();

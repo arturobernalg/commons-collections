@@ -65,7 +65,7 @@ public class GrowthListTest<E> extends AbstractListTest<E> {
         assertEquals(0, grower.size());
         grower.add(1, one);
         assertEquals(2, grower.size());
-        assertEquals(null, grower.get(0));
+        assertNull(grower.get(0));
         assertEquals(one, grower.get(1));
     }
 
@@ -79,7 +79,7 @@ public class GrowthListTest<E> extends AbstractListTest<E> {
         assertEquals(0, grower.size());
         grower.addAll(1, coll);
         assertEquals(3, grower.size());
-        assertEquals(null, grower.get(0));
+        assertNull(grower.get(0));
         assertEquals(one, grower.get(1));
         assertEquals(two, grower.get(2));
     }
@@ -90,7 +90,7 @@ public class GrowthListTest<E> extends AbstractListTest<E> {
         assertEquals(0, grower.size());
         grower.set(1, one);
         assertEquals(2, grower.size());
-        assertEquals(null, grower.get(0));
+        assertNull(grower.get(0));
         assertEquals(one, grower.get(1));
     }
 
