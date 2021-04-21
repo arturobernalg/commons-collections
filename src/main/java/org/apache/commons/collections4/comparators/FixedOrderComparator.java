@@ -282,8 +282,7 @@ public class FixedOrderComparator<T> implements Comparator<T>, Serializable {
                    (null == unknownObjectBehavior ? null == comp.unknownObjectBehavior :
                         unknownObjectBehavior == comp.unknownObjectBehavior &&
                         counter == comp.counter &&
-                        isLocked == comp.isLocked &&
-                        unknownObjectBehavior == comp.unknownObjectBehavior);
+                        isLocked == comp.isLocked);
         }
         return false;
     }
